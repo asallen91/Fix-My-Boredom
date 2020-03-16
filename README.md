@@ -18,6 +18,6 @@
 	⦁	Final touch ups will include cleaning up code and the overall presentation of the App
 
 # Project Requirements
-	⦁	Thje given API is free, so no key will be required for this App
+	⦁	The given API is free, so no key will be required for this App
 	⦁	npm install and npm start will be need to be ran in the command line in your editor to run this App on your local machine.
 
