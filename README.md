@@ -20,4 +20,3 @@
 # Project Requirements
 	⦁	The given API is free, so no key will be required for this App
 	⦁	npm install and npm start will be need to be ran in the command line in your editor to run this App on your local machine.
-
