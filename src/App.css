@@ -1,3 +1,5 @@
+/* Classname styles */
+
 .App {
   min-height: 60vh;
   display: flex;
@@ -14,12 +16,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .btn {
   background-color: azure;
   color: black;
@@ -29,7 +25,12 @@
   min-width: 120px;
 }
 
+.suggestion {
+  margin: auto;
+  padding: 5px;
+}
 
+/* HTML Styles */
 
 body {
   background-color: #282c34;
@@ -41,10 +42,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-ul {
+h3, h6, label {
   margin: 0;
-  padding: 0;
-  width: 100%;
+  padding: 0.5em;
 }
 
 li {
@@ -54,9 +54,17 @@ li {
   display: inline-block;
 }
 
-.suggestion {
-  margin: auto;
-  padding: 5px;
+ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 @keyframes App-logo-spin {
