@@ -18,11 +18,13 @@
 
 .btn {
   background-color: azure;
+  border: 5px, black;
+  border-radius: 5px;
   color: black;
-  border: none;
-  border-radius: 3px;
-  font-size: 1.45em;
-  min-width: 120px;
+  font-size: 0.75em;
+  margin: 10px;
+  min-width: 80px;
+  padding: 10px;
 }
 
 .suggestion {
@@ -45,13 +47,6 @@ body {
 h3, h6, label {
   margin: 0;
   padding: 0.5em;
-}
-
-li {
-  list-style: none;
-  width: 20%;
-  padding: 1em;
-  display: inline-block;
 }
 
 ul {

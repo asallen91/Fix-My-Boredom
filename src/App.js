@@ -1,60 +1,30 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import Background from './background';
+import Background from './background';
 
     
 class App extends Component {
   
   state = {
-    boredom: {
+    act: {
       results: [],
       loaded: false
     },
-    activity: {
+    specificAct: {
       results: [],
       loaded: false
     },
     activityType: [
-      {
-        type: 'Filter by activity type'
-      },
-      {
-        type: 'Busywork',
-        isSelected: false
-      },
-      {
-        type: 'Charity',
-        isSelected: false
-      },
-      {
-        type: 'Cooking',
-        isSelected: false
-      },
-      {
-        type: 'DIY',
-        isSelected: false
-      },
-      {
-        type: 'Education',
-        isSelected: false
-      },
-      {
-        type: 'Music',
-        isSelected: false
-      },
-      {
-        type: 'Recreational',
-        isSelected: false
-      },
-      {
-        type: 'Relaxation',
-        isSelected: false
-      },
-      {
-        type: 'Social',
-        isSelected: false
-      } 
+      {type: 'busywork'},
+      {type: 'charity'},
+      {type: 'cooking'},
+      {type: 'diy'},
+      {type: 'education'},
+      {type: 'music'},
+      {type: 'recreational'},
+      {type: 'relaxation'},
+      {type: 'social'} 
     ]
   }
 
@@ -62,40 +32,50 @@ class App extends Component {
     const response = await fetch(url)
     const rand = await response.json();
     this.setState ({
-      boredom: rand,
-      loaded: true})
-    console.log(this.state.boredom)
-    console.log(this.state.boredom.activity)
+      loaded: true,
+      act: rand
+      })
+    console.log(this.state.act)
+    console.log(this.state.act.activity)
   }
   
   fetchSelected = async (type) => {
     const response = await fetch(`http://www.boredapi.com/api/activity?type=${type}`)
     const activityType = await response.json();
     this.setState({
-      activity: activityType,
-      loaded: true
+      loaded: true,
+      specificAct: activityType
     })
-  }
 
-// fetchSelected will pull an activity by type
-// Otherwise fetchAny will pull any activity
-// Not fully implemented yet, more to come!
+  }
 
   render() {
     return (
       <div className="App">
-        {/* <Background /> */}
+        <Background />
           <img src={logo} className="App-logo" alt="logo" />
-          <h3>Bored?</h3>
-          <label>
-            <select>
-              {this.state.activityType.map(act => (
-                <option key={act.type}>{act.type}</option>
-              ))}
-            </select>
-          </label>
-          <button className="btn" onClick={ () => this.fetchAny()}>Fix it!</button>
-          <h4 className="suggestion">{this.state.boredom.activity}</h4>
+          <h2>Bored?</h2>
+          <h3>Select an activity below or hit the Random button!</h3>
+
+          <ul>
+            {this.state.activityType.map(act => (
+              <button 
+                className="btn"
+                key={act.type}
+                onClick={ () => this.fetchSelected(act.type)}
+                >{act.type.charAt(0).toUpperCase() + act.type.slice(1)}!
+              </button>
+            ))}
+          </ul>
+
+          <button 
+            className="btn" 
+            onClick={ () => this.fetchAny()}
+            >Random Activity!
+          </button>
+
+          <h3 className="suggestion">Random Activity: {this.state.act.activity}</h3>
+          <h3 className="suggestion">Specific Activity: {this.state.specificAct.activity}</h3>
       </div>
     )
   }
