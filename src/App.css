@@ -1,29 +1,24 @@
 /* Classname styles */
 
 .App {
-  min-height: 60vh;
+  align-items: center;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .btn {
-  background-color: azure;
-  border: 5px, black;
-  border-radius: 5px;
+  border: 8px, black;
+  border-radius: 8.5px;
   color: black;
   font-size: 0.75em;
   margin: 10px;
-  min-width: 80px;
+  min-width: 100px;
   padding: 10px;
 }
 
@@ -44,29 +39,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h3, h6, label {
-  margin: 0;
+h2 {
+  margin: 10px;
+}
+
+h3 {
+  margin: 30px;
   padding: 0.5em;
 }
 
 ul {
   margin: 0;
   padding: 0;
-  width: 100%;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  width: 80%;
 }

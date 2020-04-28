@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Background from './background';
+import './Search'
+import Search from './Search';
 
     
 class App extends Component {
@@ -9,11 +9,6 @@ class App extends Component {
   state = {
     act: {
       results: [],
-      loaded: false
-    },
-    specificAct: {
-      results: [],
-      loaded: false
     },
     activityType: [
       {type: 'busywork'},
@@ -25,59 +20,86 @@ class App extends Component {
       {type: 'recreational'},
       {type: 'relaxation'},
       {type: 'social'} 
-    ]
+    ],
+    btnBckgrnd: {
+      bckgrnd: [],
+      loaded: false
+    },
+    specificAct: {
+      results: [],
+    }
+  }
+
+  componentDidMount() {
+    this.fetchBackground()
   }
 
   fetchAny = async (url = 'https://www.boredapi.com/api/activity/') => {
     const response = await fetch(url)
     const rand = await response.json();
     this.setState ({
-      loaded: true,
       act: rand
       })
-    console.log(this.state.act)
-    console.log(this.state.act.activity)
+  }
+
+  fetchBackground = async (url = 'https://picsum.photos/v2/list?limit=100') => {
+    const res = await fetch(url)
+    const bg = await res.json();
+    this.setState ({
+      btnBckgrnd: bg,
+      loaded: true
+    })
+    console.log(bg)
   }
   
   fetchSelected = async (type) => {
     const response = await fetch(`http://www.boredapi.com/api/activity?type=${type}`)
     const activityType = await response.json();
     this.setState({
-      loaded: true,
       specificAct: activityType
     })
 
   }
 
   render() {
-    return (
-      <div className="App">
-        <Background />
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Bored?</h2>
-          <h3>Select an activity below or hit the Random button!</h3>
+    if (this.state.loaded === true) {
+      return (
+        <div className="App"
+          style={{
+          backgroundImage: 'url(' + this.state.btnBckgrnd[37].download_url + ')'               
+          }}
+            >
+            <h2>Bored?</h2>
+            <h3>Select an activity below or hit the Random button!</h3>
 
-          <ul>
-            {this.state.activityType.map(act => (
-              <button 
-                className="btn"
-                key={act.type}
-                onClick={ () => this.fetchSelected(act.type)}
-                >{act.type.charAt(0).toUpperCase() + act.type.slice(1)}!
-              </button>
-            ))}
-          </ul>
+            <ul>
+              {this.state.activityType.map(act => (
+                <button 
+                  className="btn"
+                  key={act.type}
+                  
+                  onClick={ () => this.fetchSelected(act.type)}
+                  >{act.type.charAt(0).toUpperCase() + act.type.slice(1)}
+                </button>
+              ))}
+            </ul>
 
-          <button 
-            className="btn" 
-            onClick={ () => this.fetchAny()}
-            >Random Activity!
-          </button>
+            <button 
+              className="btn" 
+              onClick={ () => this.fetchAny()}
+              >Random Activity!
+            </button>
 
-          <h3 className="suggestion">Random Activity: {this.state.act.activity}</h3>
-          <h3 className="suggestion">Specific Activity: {this.state.specificAct.activity}</h3>
-      </div>
-    )
+            <h3 className="suggestion">Random Activity:</h3>
+            <h2>{this.state.act.activity}</h2>
+            <h3 className="suggestion">Specific Activity:</h3>
+            <h2>{this.state.specificAct.activity}</h2>
+            <Search />
+        </div>
+      )
+    } else {
+      return (null)
+    }
   }
 }
 

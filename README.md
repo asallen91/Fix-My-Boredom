@@ -9,7 +9,7 @@ Javascripts React library will predominately be used throughout this project
 
 APIs that will be used: 
 Bored API https://www.boredapi.com/
-SerpAPI https://serpapi.com/ A Google Search API
+Google Search API https://rapidapi.com/apigeek/api/google-search3/endpoints A Google Search API with a limitation of 10 endpoint calls per day
 Picsum Photos https://picsum.photos/
 
 
@@ -27,6 +27,16 @@ The user then will be prompted if they would like to learn more about the activi
 3. Final touch ups will include cleaning up code and the overall presentation of the App
 
 ## Project Requirements
-The given APIs are free, so no keys will be required for this App
+The given APIs are free, except for the Google Search API.
+
+One will need to sign up for an account on https://rapidapi.com/ and select the Basic plan under the pricing section in the givin API link above(https://rapidapi.com/apigeek/api/google-search3/endpoints). Once one is done signing up, one will need to input their API key into the Seach.js file:
+
+    {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "google-search3.p.rapidapi.com",
+        "x-rapidapi-key": "your-key"
+      }
+    })
 
 npm install and npm start will be need to be ran in the command line in your editor to run this App on your local machine.
