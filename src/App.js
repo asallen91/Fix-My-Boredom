@@ -61,40 +61,51 @@ class App extends Component {
 
   }
 
+  // div up your siz, buttons top left, with a title
+  // Results  top right, with corrosponding titles
+  // Search query underneath
+
+  // for mobile users, use smaller buttons and display results below
+
   render() {
     if (this.state.loaded === true) {
       return (
         <div className="App"
           style={{
           backgroundImage: 'url(' + this.state.btnBckgrnd[37].download_url + ')'               
-          }}
-            >
-            <h2>Bored?</h2>
-            <h3>Select an activity below or hit the Random button!</h3>
+          }}>
+            
+            {/* <div className="Sec1"> */}
+              <h2>Bored?</h2>
+              <h3>Select an activity below or hit the Random button!</h3>
 
-            <ul>
-              {this.state.activityType.map(act => (
-                <button 
-                  className="btn"
-                  key={act.type}
-                  
-                  onClick={ () => this.fetchSelected(act.type)}
-                  >{act.type.charAt(0).toUpperCase() + act.type.slice(1)}
-                </button>
-              ))}
-            </ul>
+              <ul>
+                {this.state.activityType.map(act => (
+                  <button 
+                    className="btn"
+                    key={act.type}
+                    
+                    onClick={ () => this.fetchSelected(act.type)}
+                    >{act.type.charAt(0).toUpperCase() + act.type.slice(1)}
+                  </button>
+                ))}
+              </ul>
+              <button 
+                className="btn" 
+                onClick={ () => this.fetchAny()}
+                >Random Activity!
+              </button>
+            {/* </div> */}
 
-            <button 
-              className="btn" 
-              onClick={ () => this.fetchAny()}
-              >Random Activity!
-            </button>
+            {/* <div className="Sec2"> */}
+              <h3 className="suggestion">Random Activity:</h3>
+              <h2>{this.state.act.activity}</h2>
+              <h3 className="suggestion">Specific Activity:</h3>
+              <h2>{this.state.specificAct.activity}</h2>
+            {/* </div> */}
 
-            <h3 className="suggestion">Random Activity:</h3>
-            <h2>{this.state.act.activity}</h2>
-            <h3 className="suggestion">Specific Activity:</h3>
-            <h2>{this.state.specificAct.activity}</h2>
             <Search />
+
         </div>
       )
     } else {

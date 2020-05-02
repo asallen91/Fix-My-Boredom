@@ -39,4 +39,4 @@ One will need to sign up for an account on https://rapidapi.com/ and select the 
       }
     })
 
-npm install and npm start will be need to be ran in the command line in your editor to run this App on your local machine.
+npm install, npm install axios and npm start will be need to be ran in the command line in your editor to run this App on your local machine.
