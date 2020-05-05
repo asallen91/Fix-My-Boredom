@@ -1,37 +1,78 @@
-/* Classname styles */
+/* Styles by Class */
 
 .App {
-  align-items: center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  height: 100vh;
-  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
   text-align: center;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.25);
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 
-.btn {
+.btn{
   border: 8px, black;
-  border-radius: 8.5px;
-  color: black;
+  border-radius: 18px;
+  color: rgb(20, 20, 19);
   font-size: 0.75em;
   margin: 10px;
   min-width: 100px;
   padding: 10px;
 }
 
-.suggestion {
-  margin: auto;
-  padding: 5px;
+.searchBox {
+  width: 270px;
+  height: 44px;
 }
 
-/* HTML Styles */
+.searchField {
+  width: 100%;
+}
+
+.Sec1, .Sec2 {
+  width: 50%;
+}
+
+.searchResults {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 0;
+}
+
+.suggestion {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Styles by element */
+
+a {
+  color: rgba(0, 31, 170, 0.75);
+  text-decoration: none;
+}
+
+a, button {
+  cursor: pointer; 
+}
+
+a:hover{
+  border-radius: 18px;
+  color: rgb(0, 26, 141);
+}
+
+a:hover, button:hover {
+  text-decoration: underline;
+}
 
 body {
-  background-color: #282c34;
-  margin: 0;
+  margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -39,17 +80,48 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h2 {
-  margin: 10px;
+html {
+  box-sizing: border-box;
+  height: 100%;
 }
 
-h3 {
-  margin: 30px;
-  padding: 0.5em;
+p {
+  margin: auto;
+  -webkit-text-stroke: 1px rgb(41, 40, 40);
 }
 
 ul {
-  margin: 0;
   padding: 0;
-  width: 80%;
+}
+
+/* Styles by Flex */
+
+.mainContent, .searchResults{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: space-between;
+}
+
+.searchField {
+  flex-direction: column;
+}
+
+.Sec1, .Sec2, .searchResults {
+  flex-direction: row;
+}
+
+/* Styles by Media Queries */
+
+@media (max-width: 768px) {
+
+  .App {
+    font-size: 22px;
+  }
+
+  .Sec1, .Sec2, .searchField {
+    flex-direction: column;
+    width: 100%;
+  }
 }

@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-This App will be designed for those that are looking for something to do, but aren't sure of what they want to do.
+This App will be designed for those that are looking for something to do, but aren't sure of what they want to do. The user can find activities at random or through selected categories, search for the activity they want to do and either learn about the activity before pursuing it, or go on with pursuing it.
 
 ## Technical Summary
 Javascripts React library will predominately be used throughout this project
@@ -17,14 +17,15 @@ Picsum Photos https://picsum.photos/
 ## Features
 The user will be able to retreive suggestions for what activity to pursue.
 
-The user will also be able to filter the suggestions based on activity type, price, how accessible the activity is and how many participants the activity requires.
+The user will also be able to filter the suggestions based on activity type.
 
-The user then will be prompted if they would like to learn more about the activiy suggested and the app will preform a search for them using SerpAPI.
+The user will also be able to learn more about the activiy suggested if they so desire. If so, the user can input their desired activity into a search bar and see results returned onto the screen as links.
 
 ## Milestones
 1. Creating the main directory, complete with a randomizer button and filter suggestions
-2. Returns will be implemented as a dropbox, with links (when available) to the suggested activity as well as prompt which will allow the user to search the web about the acitiviy.
-3. Final touch ups will include cleaning up code and the overall presentation of the App
+2. Returns will be implemented as a simple html element.
+3. Search feature will be implemented and finalized
+4. Final touch ups will include cleaning up code and the overall presentation of the App
 
 ## Project Requirements
 The given APIs are free, except for the Google Search API.
@@ -35,8 +36,9 @@ One will need to sign up for an account on https://rapidapi.com/ and select the 
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "google-search3.p.rapidapi.com",
-        "x-rapidapi-key": "your-key"
+        "x-rapidapi-key": "your-key-here" <<<
       }
     })
 
-npm install, npm install axios and npm start will be need to be ran in the command line in your editor to run this App on your local machine.
+
+Run "npm install", "npm install axios" and "npm start in the command line in your editor to run this App on your local machine.

@@ -6,12 +6,12 @@ const SearchList = props => {
   let links;
     if (results.length > 0) {
       links = results.slice(0, 10).map(link =>
-        <List url={link.link} key={link.description} title={link.title}/>
+        <List url={link.link} key={link.title} title={link.title}/>
     );
   }
 
   return(
-    <ul>{links}</ul>
+    <ul className="searchResults">{links}</ul>
   );
 }
 

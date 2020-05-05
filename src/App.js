@@ -72,12 +72,13 @@ class App extends Component {
       return (
         <div className="App"
           style={{
-          backgroundImage: 'url(' + this.state.btnBckgrnd[37].download_url + ')'               
+          backgroundImage: 'url(' + this.state.btnBckgrnd[37].download_url + ')',
+          height: '100vh'
           }}>
-            
-            {/* <div className="Sec1"> */}
-              <h2>Bored?</h2>
-              <h3>Select an activity below or hit the Random button!</h3>
+          <div className="mainContent">
+            <div className="Sec1">
+              <p>Bored?</p>
+              <p>Select an activity below or hit the Random button!</p>
 
               <ul>
                 {this.state.activityType.map(act => (
@@ -89,20 +90,22 @@ class App extends Component {
                     >{act.type.charAt(0).toUpperCase() + act.type.slice(1)}
                   </button>
                 ))}
+                <button 
+                  className="btn" 
+                  onClick={ () => this.fetchAny()}
+                  >Random Activity!
+                </button>
               </ul>
-              <button 
-                className="btn" 
-                onClick={ () => this.fetchAny()}
-                >Random Activity!
-              </button>
-            {/* </div> */}
+            </div>
 
-            {/* <div className="Sec2"> */}
-              <h3 className="suggestion">Random Activity:</h3>
-              <h2>{this.state.act.activity}</h2>
-              <h3 className="suggestion">Specific Activity:</h3>
-              <h2>{this.state.specificAct.activity}</h2>
-            {/* </div> */}
+            <div className="Sec2">
+              <p className="suggestion">Specific Activity:</p>
+              <p className="actSugg">{this.state.specificAct.activity}</p>
+              <p className="suggestion">Random Activity:</p>
+              <p className="actSugg">{this.state.act.activity}</p>
+            </div>
+
+          </div>
 
             <Search />
 

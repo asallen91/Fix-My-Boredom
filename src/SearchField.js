@@ -18,17 +18,15 @@ class SearchField extends Component {
 
   render() {
     return(
-      // Need some classNames for styling
-      <form onSubmit={this.handleSubmit}>
+      <form  
+      onSubmit={this.handleSubmit}>
         <input  
+        className="searchBox"
         type="search"
         onChange={this.onSearchChange}
         name="search"
         ref={(input) => this.query = input}
         placeholder="Search for your activity..."/>
-        <button 
-        type="submit"
-        >Search</button>
       </form>
     )
   }

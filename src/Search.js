@@ -17,7 +17,7 @@ class Search extends Component {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "google-search3.p.rapidapi.com",
-        "x-rapidapi-key": "Your API key here"
+        "x-rapidapi-key": "534b58d2c1msh29c0e03361da1fbp10192bjsnc7671f06f31a"
       }
     })
     .then(response => {      
@@ -31,7 +31,7 @@ class Search extends Component {
 
   render() {
     return(
-      <div>
+      <div className="searchWrapper">
         <SearchField onSearch={this.searchResults} />
         <SearchList data={this.state.results}/>
       </div>
