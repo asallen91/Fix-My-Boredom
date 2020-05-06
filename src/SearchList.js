@@ -1,3 +1,5 @@
+// This scripts main objective is to receive props from it's parent script (Search.js) and return the results in a <ul> element when the user preforms a search.
+
 import React from 'react';
 import List from './List'
 

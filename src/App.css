@@ -1,19 +1,14 @@
 /* Styles by Class */
 
 .App {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  
   color: white;
   font-size: 28px;
   font-weight: bold;
+  height: 100vh;
   text-align: center;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.25);
-  height: 100vh;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+
 }
 
 
@@ -27,6 +22,11 @@
   padding: 10px;
 }
 
+.mainContent {
+  margin: 0;
+  padding: 0;
+}
+
 .searchBox {
   width: 270px;
   height: 44px;
@@ -34,6 +34,8 @@
 
 .searchField {
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .Sec1, .Sec2 {
@@ -43,6 +45,11 @@
 .searchResults {
   margin-left: 20%;
   margin-right: 20%;
+  padding: 0;
+}
+
+.searchWrapper {
+  margin: 0;
   padding: 0;
 }
 
@@ -73,11 +80,18 @@ a:hover, button:hover {
 
 body {
   margin: auto;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 html {
@@ -87,7 +101,7 @@ html {
 
 p {
   margin: auto;
-  -webkit-text-stroke: 1px rgb(41, 40, 40);
+  -webkit-text-stroke: 1px rgb(14, 12, 36);
 }
 
 ul {
@@ -118,6 +132,10 @@ ul {
 
   .App {
     font-size: 22px;
+  }
+
+  .btn {
+    border-radius: 18px;
   }
 
   .Sec1, .Sec2, .searchField {

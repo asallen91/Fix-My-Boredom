@@ -1,3 +1,5 @@
+// This scripts main function is to handle searches preformed by the user while receiving props from Search.js
+
 import React, {Component} from 'react';
 
 class SearchField extends Component {
@@ -6,6 +8,7 @@ class SearchField extends Component {
   searchText: ''
   }
 
+  //onSearchChange simply shows in state that the input field is receiving proper input
   onSearchChange = e => {
   this.setState({ searchText: e.target.value});
   }

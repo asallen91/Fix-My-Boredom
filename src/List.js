@@ -1,3 +1,5 @@
+// This scripts main objective is to receive properties from its parent script (SearchList.js) and returns the results to the screen when the user preforms a search.
+
 import React from 'react';
 
 const List = props => (  

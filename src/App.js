@@ -1,15 +1,19 @@
+// This script predominately contains all of the main content
+// It pulls all of the information it needs from 2 APIs and renders it to the screen when the app is started.
+
 import React, {Component} from 'react';
 import './App.css';
-import './Search'
 import Search from './Search';
 
     
 class App extends Component {
   
   state = {
+    // Randomized activity pulls are set here
     act: {
       results: [],
     },
+    // Activity types are set here to be passed down to the API pull
     activityType: [
       {type: 'busywork'},
       {type: 'charity'},
@@ -21,10 +25,12 @@ class App extends Component {
       {type: 'relaxation'},
       {type: 'social'} 
     ],
-    btnBckgrnd: {
+    // Background image is set here
+    Bckgrnd: {
       bckgrnd: [],
       loaded: false
     },
+    // Specific activities are set here
     specificAct: {
       results: [],
     }
@@ -34,6 +40,8 @@ class App extends Component {
     this.fetchBackground()
   }
 
+  // Random activity API pull
+
   fetchAny = async (url = 'https://www.boredapi.com/api/activity/') => {
     const response = await fetch(url)
     const rand = await response.json();
@@ -42,39 +50,35 @@ class App extends Component {
       })
   }
 
+  // This one was interesting, I could've just dug through the API, grabbed the link I needed and set it in CSS
+  // I decided to set it to state however, and modify the body element through react to achieve the same result
+
   fetchBackground = async (url = 'https://picsum.photos/v2/list?limit=100') => {
     const res = await fetch(url)
     const bg = await res.json();
     this.setState ({
-      btnBckgrnd: bg,
+      Bckgrnd: bg,
       loaded: true
     })
+    document.body.style.backgroundImage = 'url(' + this.state.Bckgrnd[37].download_url + ')';
     console.log(bg)
   }
   
+  // Specific activity API pull
+
   fetchSelected = async (type) => {
     const response = await fetch(`http://www.boredapi.com/api/activity?type=${type}`)
     const activityType = await response.json();
     this.setState({
       specificAct: activityType
     })
-
   }
 
-  // div up your siz, buttons top left, with a title
-  // Results  top right, with corrosponding titles
-  // Search query underneath
-
-  // for mobile users, use smaller buttons and display results below
-
   render() {
+      // fetchBackground() sets a boolean inside state to True which in turn allows the rendering of all of the components
     if (this.state.loaded === true) {
       return (
-        <div className="App"
-          style={{
-          backgroundImage: 'url(' + this.state.btnBckgrnd[37].download_url + ')',
-          height: '100vh'
-          }}>
+        <div className="App">
           <div className="mainContent">
             <div className="Sec1">
               <p>Bored?</p>
@@ -106,11 +110,10 @@ class App extends Component {
             </div>
 
           </div>
-
-            <Search />
-
+          <Search />
         </div>
       )
+      // Argument required in case loaded cannot be set to true, nothing will render if so
     } else {
       return (null)
     }
