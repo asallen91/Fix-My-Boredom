@@ -19,7 +19,7 @@ class Search extends Component {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "google-search3.p.rapidapi.com",
-        "x-rapidapi-key": "2a4b1f46eemsh63029725313a805p1503b7jsnd29ae420b9a8" // Your API key here!
+        "x-rapidapi-key": "Your API Key here :)" // Your API key here!
       }
     }) // API is set to state and logs the results in the console
     .then(response => {      
